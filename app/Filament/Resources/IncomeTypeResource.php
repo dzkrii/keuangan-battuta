@@ -2,9 +2,9 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\FacultyResource\Pages;
-use App\Filament\Resources\FacultyResource\RelationManagers;
-use App\Models\Faculty;
+use App\Filament\Resources\IncomeTypeResource\Pages;
+use App\Filament\Resources\IncomeTypeResource\RelationManagers;
+use App\Models\IncomeType;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -13,21 +13,19 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class FacultyResource extends Resource
+class IncomeTypeResource extends Resource
 {
-    protected static ?string $model = Faculty::class;
+    protected static ?string $model = IncomeType::class;
 
-    protected static ?string $navigationIcon = 'heroicon-s-building-office-2';
+    protected static ?string $navigationIcon = 'heroicon-m-folder-arrow-down';
 
-    protected static ?string $navigationLabel = 'Fakultas';
-
-    protected static ?int $navigationSort = 2;
+    protected static ?int $navigationSort = 5;
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('faculty_name')
+                Forms\Components\TextInput::make('name')
                     ->required()
                     ->maxLength(255),
             ]);
@@ -37,7 +35,7 @@ class FacultyResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('faculty_name')
+                Tables\Columns\TextColumn::make('name')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
@@ -75,9 +73,9 @@ class FacultyResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListFaculties::route('/'),
-            'create' => Pages\CreateFaculty::route('/create'),
-            'edit' => Pages\EditFaculty::route('/{record}/edit'),
+            'index' => Pages\ListIncomeTypes::route('/'),
+            'create' => Pages\CreateIncomeType::route('/create'),
+            'edit' => Pages\EditIncomeType::route('/{record}/edit'),
         ];
     }
 }
