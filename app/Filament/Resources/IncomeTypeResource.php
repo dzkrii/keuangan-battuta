@@ -19,6 +19,8 @@ class IncomeTypeResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-m-folder-arrow-down';
 
+    protected static ?string $navigationGroup = 'Transaksi';
+
     protected static ?int $navigationSort = 5;
 
     public static function form(Form $form): Form

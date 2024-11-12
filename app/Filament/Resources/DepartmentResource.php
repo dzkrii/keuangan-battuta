@@ -21,6 +21,8 @@ class DepartmentResource extends Resource
 
     protected static ?string $navigationLabel = 'Program Studi';
 
+    protected static ?string $navigationGroup = 'Data Master';
+
     protected static ?int $navigationSort = 3;
 
     public static function form(Form $form): Form

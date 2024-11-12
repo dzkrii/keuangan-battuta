@@ -22,6 +22,8 @@ class StudentResource extends Resource
 
     protected static ?string $navigationLabel = 'Mahasiswa';
 
+    protected static ?string $navigationGroup = 'Data Master';
+
     protected static ?int $navigationSort = 4;
 
     public static function form(Form $form): Form
